@@ -1,4 +1,5 @@
 import express from 'express';
+import bank from './database/db.js';
 
 const api = express();
 
