@@ -1,15 +1,13 @@
 import express from 'express';
-import bank from './database/db.js';
+import User from './models/User.js';
 
 const api = express();
 
 const port = process.env.PORT || 3000;
 
 api.get('/', (req, res) => {
-    bank.authenticate().then(() => {
-        res.send('Conectado ao banco');
-    }).catch((msgErr) => {
-        res.send("Unable to connect to the database:", msgErr);
+    User.findAll().then(users => {
+        res.json(users);
     });
 });
 

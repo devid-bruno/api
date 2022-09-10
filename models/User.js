@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
-import connect from '../database/db.js';
+import bank from '../database/db.js';
 
-const User = connect.define('user', {
+const User = bank.define('user', {
     name:{
         type: Sequelize.STRING,
         allowNull: false
