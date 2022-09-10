@@ -6,9 +6,7 @@ const api = express();
 const port = process.env.PORT || 3000;
 
 api.get('/', (req, res) => {
-    User.findAll().then(users => {
-        res.json(users);
-    });
+    res.json({ message: 'Hello World!' });
 });
 
 api.get("/secret", (req, res) => {
