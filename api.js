@@ -6,7 +6,11 @@ const api = express();
 const port = process.env.PORT || 3000;
 
 api.get('/', (req, res) => {
-    res.json({ message: 'Hello World!' });
+    User.findAll().then(users => {
+        res.json({users});
+    }).catch(err => {
+        res.json(err);
+    });
 });
 
 api.get("/secret", (req, res) => {
